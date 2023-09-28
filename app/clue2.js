@@ -82,7 +82,6 @@ let theBand = {
 
 function bandMemberDetails(name) {
   let theIndividual = theBand.members.find(member => member.name.includes(name))
-  console.log(theIndividual, name)
   return `${theIndividual.name} is in the band and plays the ${theIndividual.instrument}`
 }
 
