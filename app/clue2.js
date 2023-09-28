@@ -29,7 +29,6 @@ function hasName(arr, name) {
       result = true;
       return true // this is supposed to end function? because it does not.. assuming it only ends the parent operating 'function', the find method
     }
-    console.log('iterate')
   })
   if (result) {
     return true
@@ -82,10 +81,9 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
-  let theIndividual = theBand.members.find(member => member.name == name)
+  let theIndividual = theBand.members.find(member => member.name.includes(name))
   console.log(theIndividual, name)
-  let reply = `${theIndividual.name} is in the band and plays the ${theIndividual.instrument}`
-  return reply
+  return `${theIndividual.name} is in the band and plays the ${theIndividual.instrument}`
 }
 
 //-------------------------------------------
@@ -121,5 +119,7 @@ let flights = [{
 }]
 
 function flightCost(destination, firstClass) {
-  // TODO YOUR CODE HERE
+  let found = flights.find(flight => flight.to == destination)
+  if (firstClass) { return found.prices.firstClass }
+  return found.prices.standard
 }
