@@ -4,13 +4,13 @@
 
 // First things first we need to narrow down portions of our files to get the people who are in the area, our filing system is a mess though, we need to know which cabinet the files are in.
 
-// 1. Write function that will take in an array and and an element that will return the elements index within the array
+// 1. Write function that will take in an array and an element that will return the elements index within the array
 // EXAMPLE:
 // input: ['Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria'], 'Australia'
 // output: 4
 
 function returnIndex(arr, str) {
-  // TODO your code here
+  return arr.findIndex(a => a == str)
 }
 
 //-------------------------------------------
@@ -23,7 +23,18 @@ function returnIndex(arr, str) {
 // output: true
 
 function hasName(arr, name) {
-  // TODO your code here
+  let result = false;
+  arr.find(a => {
+    if (a == name) {
+      result = true;
+      return true // this is supposed to end function? because it does not.. assuming it only ends the parent operating 'function', the find method
+    }
+    console.log('iterate')
+  })
+  if (result) {
+    return true
+  }
+  return false
 }
 
 //-------------------------------------------
@@ -43,7 +54,8 @@ let staff = [{ id: 1, name: 'Jon' }, { id: 2, name: 'Yuli' }, { id: 21, name: 'P
 { id: 881, name: 'Paul' }, { id: 0, name: 'Jon' }, { id: 999, name: 'Timma' }]
 
 function findById(id) {
-  // TODO YOUR CODE HERE
+  let found = staff.find(staf => staf.id == id)
+  return found
 }
 
 //-------------------------------------------
@@ -70,7 +82,10 @@ let theBand = {
 }
 
 function bandMemberDetails(name) {
-  // TODO YOUR CODE HERE
+  let theIndividual = theBand.members.find(member => member.name == name)
+  console.log(theIndividual, name)
+  let reply = `${theIndividual.name} is in the band and plays the ${theIndividual.instrument}`
+  return reply
 }
 
 //-------------------------------------------
